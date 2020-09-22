@@ -32,7 +32,7 @@ export default function SignIn() {
         <Input
           name="password"
           type="password"
-          placeholder="sua senha secreta"
+          placeholder="Sua senha secreta"
         />
 
         <button type="submit">{loading ? 'Carregando...' : 'Acessar'}</button>
