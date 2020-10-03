@@ -9,7 +9,7 @@ import { signInSuccess, signFailure } from './actions';
 export function* signIn({ payload }) {
   try {
     const { email, password } = payload;
-    console.tron.log(api);
+
     const response = yield call(api.post, 'sessions', {
       email,
       password,

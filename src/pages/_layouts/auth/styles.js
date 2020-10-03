@@ -4,6 +4,7 @@ import { darken } from 'polished';
 export const Wrapper = styled.div`
   height: 100%;
   background: linear-gradient(-90deg, #7159c1, #ab59c1);
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -34,11 +35,10 @@ export const Content = styled.div`
     }
 
     span {
-      color: #f64c75;
+      color: #fb6f91;
       align-self: flex-start;
       margin: 0 0 10px;
       font-weight: bold;
-      align-items: center;
     }
 
     button {
@@ -50,7 +50,7 @@ export const Content = styled.div`
       border: 0;
       border-radius: 4px;
       font-size: 16px;
-      transition: background 0.2%;
+      transition: background 0.2s;
 
       &:hover {
         background: ${darken(0.03, '#3b9eff')};

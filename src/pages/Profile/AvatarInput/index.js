@@ -34,15 +34,17 @@ export default function AvatarInput() {
     setFile(id);
     setPreview(url);
   }
+
   return (
     <Container>
       <label htmlFor="avatar">
         <img
           src={
-            preview || 'https://api.adorable.io/avatars/285/abott@adorable.png'
+            preview || 'https://api.adorable.io/avatars/50/abott@adorable.png'
           }
-          alt=""
+          alt="Avatar"
         />
+
         <input
           type="file"
           id="avatar"

@@ -25,11 +25,10 @@ export const Container = styled.div`
     }
 
     span {
-      color: #f64c75;
+      color: #fb6f91;
       align-self: flex-start;
       margin: 0 0 10px;
       font-weight: bold;
-      align-items: center;
     }
 
     hr {
@@ -48,21 +47,10 @@ export const Container = styled.div`
       border: 0;
       border-radius: 4px;
       font-size: 16px;
-      transition: background 0.2%;
+      transition: background 0.2s;
 
       &:hover {
         background: ${darken(0.03, '#3b9eff')};
-      }
-    }
-
-    a {
-      color: #fff;
-      margin-top: 15px;
-      font-size: 16px;
-      opacity: 0.8;
-
-      &:hover {
-        opacity: 1;
       }
     }
   }
@@ -77,7 +65,7 @@ export const Container = styled.div`
     border: 0;
     border-radius: 4px;
     font-size: 16px;
-    transition: background 0.2%;
+    transition: background 0.2s;
 
     &:hover {
       background: ${darken(0.08, '#f64c75')};

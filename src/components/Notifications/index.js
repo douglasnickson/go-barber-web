@@ -8,9 +8,9 @@ import api from '~/services/api';
 import {
   Container,
   Badge,
-  Scroll,
-  NotificationList,
+  NotificationsList,
   Notification,
+  Scroll,
 } from './styles';
 
 export default function Notifications() {
@@ -18,7 +18,7 @@ export default function Notifications() {
   const [notifications, setNotifications] = useState([]);
 
   const hasUnread = useMemo(
-    () => !!notifications.find((notification) => notification.read === false),
+    () => !!notifications.find(notification => notification.read === false),
     [notifications]
   );
 
@@ -26,7 +26,7 @@ export default function Notifications() {
     async function loadNotifications() {
       const response = await api.get('notifications');
 
-      const data = response.data.map((notification) => ({
+      const data = response.data.map(notification => ({
         ...notification,
         timeDistance: formatDistance(
           parseISO(notification.createdAt),
@@ -37,6 +37,7 @@ export default function Notifications() {
 
       setNotifications(data);
     }
+
     loadNotifications();
   }, []);
 
@@ -44,11 +45,11 @@ export default function Notifications() {
     setVisible(!visible);
   }
 
-  async function handleMarkAsRead(id) {
+  async function handleMaskAsRead(id) {
     await api.put(`notifications/${id}`);
 
     setNotifications(
-      notifications.map((notification) =>
+      notifications.map(notification =>
         notification._id === id ? { ...notification, read: true } : notification
       )
     );
@@ -60,16 +61,16 @@ export default function Notifications() {
         <MdNotifications color="#7159c1" size={20} />
       </Badge>
 
-      <NotificationList visible={visible}>
+      <NotificationsList visible={visible}>
         <Scroll>
-          {notifications.map((notification) => (
+          {notifications.map(notification => (
             <Notification key={notification._id} unread={!notification.read}>
               <p>{notification.content}</p>
               <time>{notification.timeDistance}</time>
               {!notification.read && (
                 <button
                   type="button"
-                  onClick={() => handleMarkAsRead(notification._id)}
+                  onClick={() => handleMaskAsRead(notification._id)}
                 >
                   Marcar como lida
                 </button>
@@ -77,7 +78,7 @@ export default function Notifications() {
             </Notification>
           ))}
         </Scroll>
-      </NotificationList>
+      </NotificationsList>
     </Container>
   );
 }

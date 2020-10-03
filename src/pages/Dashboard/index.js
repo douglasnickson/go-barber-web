@@ -16,7 +16,7 @@ import api from '~/services/api';
 
 import { Container, Time } from './styles';
 
-const range = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+const range = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19];
 
 export default function Dashboard() {
   const [schedules, setSchedules] = useState([]);
@@ -33,14 +33,14 @@ export default function Dashboard() {
 
       const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
-      const data = range.map((hour) => {
+      const data = range.map(hour => {
         const checkDate = setSeconds(setMinutes(setHours(date, hour), 0), 0);
         const compareDate = utcToZonedTime(checkDate, timezone);
 
         return {
           time: `${hour}:00h`,
           past: isBefore(compareDate, new Date()),
-          appointment: response.data.find((a) =>
+          appointment: response.data.find(a =>
             isEqual(parseISO(a.date), compareDate)
           ),
         };
@@ -73,7 +73,7 @@ export default function Dashboard() {
       </header>
 
       <ul>
-        {schedules.map((schedule) => (
+        {schedules.map(schedule => (
           <Time
             key={schedule.time}
             past={schedule.past}
